@@ -1,0 +1,55 @@
+[
+  {
+    "id": 1,
+    "sujet": "math",
+    "niveau": "facile",
+    "duree": "1h",
+    "description": "ceci est un cours de math facile",
+    "objectif": "apprendre les bases de l'arithmétique",
+    "enseignant": "M. Dupont"
+  },
+  {
+    "id": 2,
+    "sujet": "français",
+    "niveau": "moyen",
+    "duree": "1h30",
+    "description": "ceci est un cours de français moyen",
+    "objectif": "apprendre les bases de l'arithmétique",
+    "enseignant": "Mme Martin"
+  },
+  {
+    "id": 3,
+    "sujet": "aze",
+    "niveau": "facile",
+    "duree": "30min",
+    "description": "c",
+    "objectif": "apprendre les bases de l'arithmétique",
+    "enseignant": "c"
+  },
+  {
+    "id": 4,
+    "sujet": "danse",
+    "niveau": "facile",
+    "duree": 30,
+    "description": "cours de danse contemporain",
+    "enseignant": "dulo"
+  },
+  {
+    "id": 5,
+    "sujet": "Hip-Hop",
+    "niveau": "Facile",
+    "objectif": "Découvrir les bases du hip-hop, apprendre des mouvements simples et comprendre l'histoire et la culture du hip-hop.",
+    "duree": 30,
+    "description": "Ce cours d'initiation au hip-hop est conçu pour les débutants qui souhaitent découvrir les fondements de cette danse dynamique et expressive. Au cours de cette session de 30 minutes, les participants apprendront des mouvements de base, tout en s'immergeant dans l'histoire et la culture du hip-hop. Le cours sera à la fois pratique et théorique, pour une approche globale de cette danse.",
+    "enseignant": "Hip Hip"
+  },
+  {
+    "sujet": "Vélo",
+    "niveau": "Facile",
+    "objectif": "Apprendre les bases de la pratique du vélo, y compris la sécurité, l'équipement nécessaire et les techniques de conduite.",
+    "duree": 30,
+    "description": "Ce cours de vélo est destiné aux débutants algériens qui souhaitent s'initier à la pratique du vélo. Il couvre les aspects essentiels tels que la sécurité, l'équipement adéquat, et les compétences de base pour rouler en toute confiance.",
+    "enseignant": "Edui",
+    "id": 6
+  }
+]
