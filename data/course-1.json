@@ -1,0 +1,9 @@
+{
+  "id": 1,
+  "sujet": "math",
+  "niveau": "facile",
+  "duree": "1h",
+  "description": "ceci est un cours de math facilertgegrtre",
+  "enseignant": "M. Dupont",
+  "objectif": "apprendre les bases de l'arithmétique"
+}

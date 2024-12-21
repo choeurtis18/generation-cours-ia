@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { DIFFICULTY_LEVELS, DURATIONS } from "../constants/course";
 
 export default function Home() {
   const [sujet, setSujet] = useState("");
@@ -13,26 +14,24 @@ export default function Home() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const data = { sujet, niveau, duree, description, enseignant };
-  
+
     try {
-      const response = await fetch("/api/elprofressor", {
-        method: "POST", // Important : Doit être POST
+      const response = await fetch("/api/elprofessor", {
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
-  
+
       if (response.ok) {
         const result = await response.json();
         setResponseMessage(result.message);
-        // Réinitialiser le formulaire après succès
         setSujet("");
         setNiveau("facile");
         setDuree("30min");
         setDescription("");
         setEnseignant("");
-
         window.location.href = "/cours";
       } else {
         const error = await response.json();
@@ -42,79 +41,122 @@ export default function Home() {
       setResponseMessage("Une erreur réseau est survenue.");
     }
   };
-  
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Ajouter un Cours</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block">Sujet :</label>
-          <input
-            type="text"
-            value={sujet}
-            onChange={(e) => setSujet(e.target.value)}
-            className="border p-2 rounded w-full"
-            required
-          />
-        </div>
-        <div>
-          <label className="block">Niveau de difficulté :</label>
-          <select
-            value={duree}
-            onChange={(e) => setNiveau(e.target.value)}
-            className="border p-2 rounded w-full"
-            required
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+      <div className="max-w-4xl w-full bg-white shadow-md rounded-lg p-8">
+        <h1 className="text-2xl font-bold text-indigo-600 mb-6">Ajouter un Cours</h1>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Sujet */}
+          <div>
+            <label htmlFor="sujet" className="block text-sm font-medium text-gray-700">
+              Sujet :
+            </label>
+            <input
+              id="sujet"
+              type="text"
+              value={sujet}
+              onChange={(e) => setSujet(e.target.value)}
+              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200"
+              required
+              placeholder="Exemple : Introduction à la programmation"
+            />
+          </div>
+
+          {/* Niveau */}
+          <div>
+            <label htmlFor="niveau" className="block text-sm font-medium text-gray-700">
+              Niveau de difficulté :
+            </label>
+            <select
+              id="niveau"
+              value={niveau}
+              onChange={(e) => setNiveau(e.target.value)}
+              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200"
+              required
+            >
+              {DIFFICULTY_LEVELS.map((level) => (
+                <option key={level} value={level}>
+                  {level.charAt(0).toUpperCase() + level.slice(1)}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Durée */}
+          <div>
+            <label htmlFor="duree" className="block text-sm font-medium text-gray-700">
+              Durée :
+            </label>
+            <select
+              id="duree"
+              value={duree}
+              onChange={(e) => setDuree(e.target.value)}
+              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200"
+              required
+            >
+              {DURATIONS.map((duration) => (
+                <option key={duration} value={duration}>
+                  {duration}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Description */}
+          <div>
+            <label htmlFor="description" className="block text-sm font-medium text-gray-700">
+              Description :
+            </label>
+            <textarea
+              id="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200"
+              rows={4}
+              required
+              placeholder="Décrivez brièvement le contenu et les objectifs du cours"
+            ></textarea>
+          </div>
+
+          {/* Enseignant */}
+          <div>
+            <label htmlFor="enseignant" className="block text-sm font-medium text-gray-700">
+              Nom de l'enseignant :
+            </label>
+            <input
+              id="enseignant"
+              type="text"
+              value={enseignant}
+              onChange={(e) => setEnseignant(e.target.value)}
+              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200"
+              required
+              placeholder="Exemple : M. Dupont"
+            />
+          </div>
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="w-full bg-indigo-600 text-white font-medium py-2.5 rounded-md shadow-md hover:bg-indigo-700 transition"
           >
-            <option value="facile">facile</option>
-            <option value="intermediaire">intermédiaire</option>
-            <option value="difficile">difficile</option>
-            <option value="expert">expert</option>
-          </select>
-        </div>
-        <div>
-          <label className="block">Durée :</label>
-          <select
-            value={duree}
-            onChange={(e) => setDuree(e.target.value)}
-            className="border p-2 rounded w-full"
-            required
+            Soumettre
+          </button>
+        </form>
+
+        {/* Response Message */}
+        {responseMessage && (
+          <div
+            className={`mt-4 p-4 rounded-md ${
+              responseMessage.includes("succès")
+                ? "bg-green-100 text-green-800"
+                : "bg-red-100 text-red-800"
+            }`}
           >
-            <option value="30min">30min</option>
-            <option value="1h">1h</option>
-            <option value="1h30min">1h30min</option>
-            <option value="2h">2h</option>
-          </select>
-        </div>
-        <div>
-          <label className="block">Description :</label>
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            className="border p-2 rounded w-full"
-            required
-          ></textarea>
-        </div>
-        <div>
-          <label className="block">Nom de l'enseignant :</label>
-          <input
-            type="text"
-            value={enseignant}
-            onChange={(e) => setEnseignant(e.target.value)}
-            className="border p-2 rounded w-full"
-            required
-          />
-        </div>
-        <button
-          type="submit"
-          className="bg-blue-500 text-white p-2 rounded mt-4"
-        >
-          Soumettre
-        </button>
-      </form>
-      {responseMessage && (
-        <p className="mt-4 text-green-600">{responseMessage}</p>
-      )}
+            {responseMessage}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

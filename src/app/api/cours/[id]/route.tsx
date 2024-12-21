@@ -3,35 +3,51 @@ import fs from "fs";
 import path from "path";
 
 interface Cours {
-    id: number;
-    sujet: string;
-    description: string;
-    niveau: string;
-    duree: number;
-    objectif: string;
-    enseignant: string;
+  id: number;
+  sujet: string;
+  description: string;
+  niveau: string;
+  duree: number;
+  objectif: string;
+  enseignant: string;
 }
 
-
 export async function GET(
-    request: Request,
-    { params }: { params: { id: string } }
+  request: Request,
+  { params }: { params: { id: string } }
 ) {
-    try {
-        const filePath = path.join(process.cwd(), "data", "courses.json");
-        const fileData = fs.existsSync(filePath)
-          ? fs.readFileSync(filePath, "utf8")
-          : "[]";
-    
-        const courses = JSON.parse(fileData);
+  try {
+    const filePath = path.join(process.cwd(), "data", "courses.json");
+    const fileData = fs.existsSync(filePath)
+      ? fs.readFileSync(filePath, "utf8")
+      : "[]";
 
-        const cours = courses.find((e: Cours) => e.id === parseInt(params.id));
-        return NextResponse.json(cours, { status: 200 });
-    } catch (error) {
-        console.error("Erreur lors de la récupération des cours :", error);
-        return NextResponse.json(
-          { message: "Erreur lors de la récupération des cours." },
-          { status: 500 }
-        );
+    const courses: Cours[] = JSON.parse(fileData);
+    const cours = courses.find((e) => e.id === parseInt(params.id));
+
+    if (!cours) {
+      return NextResponse.json(
+        { message: "Cours non trouvé." },
+        { status: 404 }
+      );
     }
+
+    // Créer un fichier JSON temporaire pour le téléchargement
+    const exportPath = path.join(process.cwd(), "data", `course-${cours.id}.json`);
+    fs.writeFileSync(exportPath, JSON.stringify(cours, null, 2));
+
+    // Retourner le fichier comme réponse (downloadable)
+    return new Response(fs.readFileSync(exportPath), {
+      headers: {
+        "Content-Type": "application/json",
+        "Content-Disposition": `attachment; filename="course-${cours.id}.json"`,
+      },
+    });
+  } catch (error) {
+    console.error("Erreur lors de l'exportation du cours :", error);
+    return NextResponse.json(
+      { message: "Erreur lors de l'exportation du cours." },
+      { status: 500 }
+    );
+  }
 }
