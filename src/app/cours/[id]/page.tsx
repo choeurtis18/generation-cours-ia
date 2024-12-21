@@ -191,7 +191,7 @@ export default function CoursDetails() {
             htmlFor="import-json"
             className="mr-2 text-sm font-medium text-gray-700"
           >
-            Importer un fichier JSON :
+            Importer un fichier JSON pour modifier le cours :
           </label>
           <input
             type="file"
