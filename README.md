@@ -5,6 +5,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 First, run the development server:
 
 ```bash
+npm install
+# after
 npm run dev
 # or
 yarn dev
@@ -13,6 +15,8 @@ pnpm dev
 # or
 bun dev
 ```
+
+Créer un fichier .env et ajouter la valeur "CHATGPT_API_KEY" avec la bonne clé
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
