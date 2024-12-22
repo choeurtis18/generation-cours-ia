@@ -11,12 +11,12 @@ npm install
 # after
 npm run dev
 ```
-### N'oubliez pas remplacer votre clé :
+### N'oubliez pas de remplacer votre clé :
 Créer un fichier .env et ajouter la valeur "CHATGPT_API_KEY" avec la bonne clé
 ```bash
 CHATGPT_API_KEY="votre_clé"
 ```
-Ouverez [http://localhost:3000](http://localhost:3000) nur votre navigateur préféré.
+Ouverez [http://localhost:3000](http://localhost:3000) sur votre navigateur préféré.
 
 
 ## Learn More
