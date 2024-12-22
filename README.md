@@ -11,7 +11,7 @@ npm install
 # after
 npm run dev
 ```
-### N'ouvliez pas remplacer votre clé :
+### N'oubliez pas remplacer votre clé :
 Créer un fichier .env et ajouter la valeur "CHATGPT_API_KEY" avec la bonne clé
 ```bash
 CHATGPT_API_KEY="votre_clé"
