@@ -1,7 +1,7 @@
 Une application permettant aux enseignants de générer des cours interactifs, des fiches de révision et des QCM à l'aide de l'IA, avec la possibilité de télécharger le tout en format PDF ou JSON.
 ## Getting Started
 
-###Installer les dépendances
+### Installer les dépendances
 
 ```bash
 npm install
