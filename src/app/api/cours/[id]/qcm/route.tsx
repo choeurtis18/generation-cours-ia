@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 
@@ -12,14 +12,26 @@ interface Cours {
   enseignant: string;
 }
 
-export async function GET(request: Request, { params }: { params: { id: string } }) {
+export async function GET(request: NextRequest) {
   try {
-    const { id } = await params;
+    // Récupérer les paramètres de l'URL
     const url = new URL(request.url);
-    const numberOfQuestions = parseInt(url.searchParams.get('questions') || '0');
+
+    // Extraction précise de l'ID (avant "qcm")
+    const match = url.pathname.match(/\/api\/cours\/(\d+)\/qcm/);
+    const id = match ? match[1] : null;
+
+    if (!id || isNaN(parseInt(id))) {
+      return NextResponse.json({ message: "ID de cours invalide." }, { status: 400 });
+    }
+
+    const numberOfQuestions = parseInt(url.searchParams.get("questions") || "0");
 
     if (numberOfQuestions <= 0) {
-      return NextResponse.json({ message: "Veuillez spécifier un nombre valide de questions." }, { status: 400 });
+      return NextResponse.json(
+        { message: "Veuillez spécifier un nombre valide de questions." },
+        { status: 400 }
+      );
     }
 
     const filePath = path.join(process.cwd(), "data", "courses.json");

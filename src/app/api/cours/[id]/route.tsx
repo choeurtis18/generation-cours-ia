@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 
@@ -12,32 +12,29 @@ interface Cours {
   enseignant: string;
 }
 
-export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
-) {
+export async function GET(request: NextRequest) {
   try {
-    const { id } = await params; // Attendre params
+    // Récupérer les paramètres de l'URL
+    const url = new URL(request.url);
+    const id = url.pathname.split("/").pop(); // Récupérer l'ID depuis l'URL
+
+    if (!id || isNaN(parseInt(id))) {
+      return NextResponse.json({ message: "ID de cours invalide." }, { status: 400 });
+    }
+    
     const filePath = path.join(process.cwd(), "data", "courses.json");
-    const fileData = fs.existsSync(filePath)
-      ? fs.readFileSync(filePath, "utf8")
-      : "[]";
+    const fileData = fs.existsSync(filePath) ? fs.readFileSync(filePath, "utf8") : "[]";
 
     const courses: Cours[] = JSON.parse(fileData);
-    const cours = courses.find((e) => e.id === parseInt(id)); // Utiliser id
+    const cours = courses.find((e) => e.id === parseInt(id));
 
     if (!cours) {
-      return NextResponse.json(
-        { message: "Cours non trouvé." },
-        { status: 404 }
-      );
+      return NextResponse.json({ message: "Cours non trouvé." }, { status: 404 });
     }
 
-    // Créer un fichier JSON temporaire pour le téléchargement
-    const exportPath = path.join(process.cwd(), "data", `course-${cours.id}.json`); // Définir exportPath
+    const exportPath = path.join(process.cwd(), "data", `course-${cours.id}.json`);
     fs.writeFileSync(exportPath, JSON.stringify(cours, null, 2));
 
-    // Retourner le fichier comme réponse (downloadable)
     return new Response(fs.readFileSync(exportPath), {
       headers: {
         "Content-Type": "application/json",
@@ -45,10 +42,7 @@ export async function GET(
       },
     });
   } catch (error) {
-    console.error("Erreur lors de l'exportation du cours :", error);
-    return NextResponse.json(
-      { message: "Erreur lors de l'exportation du cours." },
-      { status: 500 }
-    );
+    console.error("Erreur :", error);
+    return NextResponse.json({ message: "Erreur interne." }, { status: 500 });
   }
 }

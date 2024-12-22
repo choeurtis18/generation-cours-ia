@@ -39,6 +39,7 @@ export default function Home() {
       }
     } catch (err) {
       setResponseMessage("Une erreur réseau est survenue.");
+      console.error(err);
     }
   };
 
@@ -122,7 +123,7 @@ export default function Home() {
           {/* Enseignant */}
           <div>
             <label htmlFor="enseignant" className="block text-sm font-medium text-gray-700">
-              Nom de l'enseignant :
+              Nom de l enseignant :
             </label>
             <input
               id="enseignant"

@@ -5,7 +5,6 @@ import { useParams } from "next/navigation";
 import { jsPDF } from "jspdf";
 import "jspdf-autotable";
 import CourseObjective from "@/components/CourseObjective";
-import QCM from "@/components/QCM";
 
 interface Cours {
   id: number;
@@ -21,8 +20,6 @@ export default function CoursDetails() {
   const { id } = useParams();
   const [cours, setCours] = useState<Cours | null>(null);
   const [uploadMessage, setUploadMessage] = useState<string | null>(null);
-  const [fiche, setFiche] = useState<string | null>(null);
-  const [qcm, setQcm] = useState<string | null>(null);
   const [isGeneratingFiche, setIsGeneratingFiche] = useState(false);
   const [isGeneratingQCM, setIsGeneratingQCM] = useState(false);
   const [numberOfQuestions, setNumberOfQuestions] = useState(5); // État pour le nombre de questions QCM
@@ -82,6 +79,7 @@ export default function CoursDetails() {
       }
     } catch (error) {
       setUploadMessage("Erreur lors de la lecture du fichier JSON.");
+      console.error("Erreur lors de la lecture du fichier JSON :", error);
     }
   };
 
@@ -91,8 +89,7 @@ export default function CoursDetails() {
       const response = await fetch(`/api/cours/${id}/revision`);
       if (response.ok) {
         const data = await response.json();
-        setFiche(data.fiche);
-        generatePDF(data.fiche);
+        generateQCMPDF(data.fiche);
       } else {
         console.error("Erreur lors de la génération de la fiche.");
       }
@@ -109,7 +106,6 @@ export default function CoursDetails() {
       const response = await fetch(`/api/cours/${id}/qcm?questions=${numberOfQuestions}`);
       if (response.ok) {
         const data = await response.json();
-        setQcm(data.qcm);
         generateQCMPDF(data.qcm);
       } else {
         console.error("Erreur lors de la génération du QCM.");
@@ -145,7 +141,7 @@ export default function CoursDetails() {
     const maxHeight = pdf.internal.pageSize.height - 20; // Limite de la page
   
     // Ajouter chaque ligne et vérifier si on atteint la fin de la page
-    lines.forEach((line, index) => {
+    lines.forEach((line: string | string[]) => {
       if (yOffset + 10 > maxHeight) {
         pdf.addPage(); // Ajouter une nouvelle page si nécessaire
         yOffset = 20; // Réinitialiser la position
