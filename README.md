@@ -1,28 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
+Une application permettant aux enseignants de générer des cours interactifs, des fiches de révision et des QCM à l'aide de l'IA, avec la possibilité de télécharger le tout en format PDF ou JSON.
 ## Getting Started
 
-First, run the development server:
+###Installer les dépendances
 
 ```bash
 npm install
+```
+### lancer le serveur de developpment 
+```bash
 # after
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
+### N'ouvliez pas remplacer votre clé :
 Créer un fichier .env et ajouter la valeur "CHATGPT_API_KEY" avec la bonne clé
+```bash
+CHATGPT_API_KEY="votre_clé"
+```
+Ouverez [http://localhost:3000](http://localhost:3000) nur votre navigateur préféré.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 ## Learn More
 
