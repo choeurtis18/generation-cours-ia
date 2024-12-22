@@ -8,7 +8,7 @@ interface Cours {
   sujet: string;
   description: string;
   niveau: string;
-  duree: number;
+  duree: string; // Changement ici
   objectif: string;
   enseignant: string;
 }
@@ -29,7 +29,7 @@ export default function CoursesList() {
   const [courses, setCourses] = useState<Cours[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedDifficulty, setSelectedDifficulty] = useState<string | null>(null);
-  const [selectedDuration, setSelectedDuration] = useState<number | null>(null);
+  const [selectedDuration, setSelectedDuration] = useState<string | null>(null); // Changement ici
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -63,115 +63,117 @@ export default function CoursesList() {
       selectedDifficulty === null || cours.niveau.toLowerCase() === selectedDifficulty;
 
     const matchesDuration =
-      selectedDuration === null || cours.duree === selectedDuration;
-
+      selectedDuration === null || cours.duree === selectedDuration; // Changement ici pour comparer des strings
+  
     return matchesSearch && matchesDifficulty && matchesDuration;
   });
 
   return (
-    <div className="max-w-auto px-12 py-14 mx-auto p-6">
-      <h1 className="text-3xl font-extrabold text-blue-600 mb-6">Liste des cours</h1>
+    <div className="max-w-4xl w-full bg-white shadow-md rounded-lg p-8">
+      <div className="max-w-auto min-h-screen mx-auto pt-10 pl-10 pr-10 p-6 bg-white shadow rounded-lg">
+          <h1 className="text-3xl font-extrabold text-blue-600 mb-6">Liste des cours</h1>
 
-      <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        {/* Barre de recherche */}
-        <div className="relative w-full sm:w-1/3">
-          <input
-            type="text"
-            placeholder="Rechercher par nom de cours ou enseignant..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="block w-full rounded-md border-gray-300 pl-4 pr-4 py-2 text-sm shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
-          />
-        </div>
-
-        {/* Filtrer par difficulté */}
-        <div className="relative w-full sm:w-1/4">
-          <select
-            value={selectedDifficulty || ""}
-            onChange={(e) => setSelectedDifficulty(e.target.value || null)}
-            className="block w-full rounded-md border-gray-300 pl-3 pr-10 py-2 text-sm shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
-          >
-            <option value="">Toutes les difficultés</option>
-            <option value="facile">Facile</option>
-            <option value="intermediaire">Intermédiaire</option>
-            <option value="difficile">Difficile</option>
-            <option value="expert">Expert</option>
-          </select>
-        </div>
-
-        {/* Filtrer par durée */}
-        <div className="relative w-full sm:w-1/4">
-          <select
-            value={selectedDuration || ""}
-            onChange={(e) => setSelectedDuration(e.target.value ? Number(e.target.value) : null)}
-            className="block w-full rounded-md border-gray-300 pl-3 pr-10 py-2 text-sm shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
-          >
-            <option value="">Toutes les durées</option>
-            <option value="30">30 minutes</option>
-            <option value="60">60 minutes</option>
-            <option value="90">90 minutes</option>
-            <option value="120">120 minutes</option>
-          </select>
-        </div>
-
-        {/* Bouton Réinitialiser */}
-        <button
-          onClick={handleResetFilters}
-          className="w-full sm:w-auto px-4 py-2 bg-red-600 text-white font-medium rounded-md shadow-sm hover:bg-red-700 focus:ring-2 focus:ring-red-300"
-        >
-          Réinitialiser
-        </button>
-      </div>
-
-      {/* Affichage du loader */}
-      {isLoading ? (
-        <div className="min-h-screen flex items-center justify-center">
-        <span className="loader block"></span>;
-        </div>
-      ) : filteredCourses.length > 0 ? (
-        <ul role="list" className="divide-y divide-gray-100">
-          {filteredCourses.map((cours: Cours) => (
-            <li
-              key={cours.id}
-              className="flex items-center justify-between gap-x-6 py-5"
-            >
-              <div className="min-w-0">
-                <div className="flex items-start gap-x-3">
-                  <p className="text-sm font-semibold text-gray-900">
-                    {cours.sujet}
-                  </p>
-                  <p
-                    className={classNames(
-                      difficultyStyles[cours.niveau.toLowerCase()],
-                      "mt-0.5 whitespace-nowrap rounded-md px-1.5 py-0.5 text-xs font-medium ring-1 ring-inset"
-                    )}
-                  >
-                    {cours.niveau.charAt(0).toUpperCase() +
-                      cours.niveau.slice(1)}
-                  </p>
-                </div>
-                <div className="mt-1 flex items-center gap-x-2 text-md text-gray-500">
-                  <p className="whitespace-nowrap">{cours.duree} minutes</p>
-                  <svg viewBox="0 0 2 2" className="size-0.5 fill-current">
-                    <circle r={1} cx={1} cy={1} />
-                  </svg>
-                  <p className="truncate">{cours.description}</p>
-                </div>
+            <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              {/* Barre de recherche */}
+              <div className="relative w-full sm:w-1/3 text-black">
+                <input
+                  type="text"
+                  placeholder="Recherche par cours/enseignant"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="block w-full rounded-md border-gray-300 pl-4 pr-4 py-2 text-sm shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
+                />
               </div>
-              <div className="flex flex-none items-center gap-x-4">
-                <Link
-                  href={`/cours/${cours.id}`}
-                  className="hidden sm:block rounded-md bg-white px-2.5 py-1.5 text-mmd font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+
+              {/* Filtrer par difficulté */}
+              <div className="relative w-full sm:w-1/4">
+                <select
+                  value={selectedDifficulty || ""}
+                  onChange={(e) => setSelectedDifficulty(e.target.value || null)}
+                  className="block w-full rounded-md border-gray-300 pl-3 pr-10 py-2 text-black shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
                 >
-                  Voir<span className="sr-only">, {cours.sujet}</span>
-                </Link>
+                  <option value="">Toutes les difficultés</option>
+                  <option value="facile">Facile</option>
+                  <option value="intermediaire">Intermédiaire</option>
+                  <option value="difficile">Difficile</option>
+                  <option value="expert">Expert </option>
+                </select>
               </div>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p className="text-gray-500">Aucun cours disponible.</p>
-      )}
+
+              {/* Filtrer par durée */}
+              <div className="relative w-full sm:w-1/4">
+                <select
+                  value={selectedDuration || ""}
+                  onChange={(e) => setSelectedDuration(e.target.value || null)} // Changement ici
+                  className="block w-full rounded-md border-gray-300 pl-3 pr-10 py-2 text-sm shadow-sm text-black focus:border-blue-500 focus:ring focus:ring-blue-200"
+                >
+                  <option value="">Toutes les durées</option>
+                  <option value="30min">30 minutes</option>
+                  <option value="1h">1 heure</option>
+                  <option value="1h30min">1h30min</option>
+                  <option value="2h">2 heures</option>
+                </select>
+              </div>
+
+              {/* Bouton Réinitialiser */}
+              <button
+                onClick={handleResetFilters}
+                className="w-full sm:w-auto px-4 py-2 bg-red-600 text-white font-medium rounded-md shadow-sm hover:bg-red-700 focus:ring-2 focus:ring-red-300"
+              >
+                Réinitialiser
+              </button>
+            </div>
+
+          {/* Affichage du loader */}
+          {isLoading ? (
+            <div className="min-h-screen flex items-center justify-center">
+            <span className="loader block"></span>
+            </div>
+          ) : filteredCourses.length > 0 ? (
+            <ul role="list" className="divide-y divide-gray-100">
+              {filteredCourses.map((cours: Cours) => (
+                <li
+                  key={cours.id}
+                  className="flex items-center justify-between gap-x-6 py-5"
+                >
+                  <div className="min-w-0">
+                    <div className="flex items-start gap-x-3">
+                      <p className="text-sm font-semibold text-gray-900">
+                        {cours.sujet}
+                      </p>
+                      <p
+                        className={classNames(
+                          difficultyStyles[cours.niveau.toLowerCase()],
+                          "mt-0.5 whitespace-nowrap rounded-md px-1.5 py-0.5 text-xs font-medium ring-1 ring-inset"
+                        )}
+                      >
+                        {cours.niveau.charAt(0).toUpperCase() +
+                          cours.niveau.slice(1)}
+                      </p>
+                    </div>
+                    <div className="mt-1 flex items-center gap-x-2 text-md text-gray-500">
+                      <p className="whitespace-nowrap">{cours.duree}</p>
+                      <svg viewBox="0 0 2 2" className="size-0.5 fill-current">
+                        <circle r={1} cx={1} cy={1} />
+                      </svg>
+                      <p className="truncate">{cours.description}</p>
+                    </div>
+                  </div>
+                  <div className="flex flex-none items-center gap-x-4">
+                    <Link
+                      href={`/cours/${cours.id}`}
+                      className="hidden sm:block rounded-md bg-white px-2.5 py-1.5 text-mmd font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                    >
+                      Voir<span className="sr-only">, {cours.sujet}</span>
+                    </Link>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="text-gray-500">Aucun cours disponible.</p>
+          )}
+      </div>
     </div>
   );
 }

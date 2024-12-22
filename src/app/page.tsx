@@ -57,7 +57,7 @@ export default function Home() {
               type="text"
               value={sujet}
               onChange={(e) => setSujet(e.target.value)}
-              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200"
+              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 text-black"
               required
               placeholder="Exemple : Introduction à la programmation"
             />
@@ -65,14 +65,14 @@ export default function Home() {
 
           {/* Niveau */}
           <div>
-            <label htmlFor="niveau" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="niveau" className="block text-sm font-medium text-gray-700 ">
               Niveau de difficulté :
             </label>
             <select
               id="niveau"
               value={niveau}
               onChange={(e) => setNiveau(e.target.value)}
-              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200"
+              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 text-black"
               required
             >
               {DIFFICULTY_LEVELS.map((level) => (
@@ -92,7 +92,7 @@ export default function Home() {
               id="duree"
               value={duree}
               onChange={(e) => setDuree(e.target.value)}
-              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200"
+              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 text-black"
               required
             >
               {DURATIONS.map((duration) => (
@@ -112,10 +112,10 @@ export default function Home() {
               id="description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200"
+              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 text-black"
               rows={4}
               required
-              placeholder="Décrivez brièvement le contenu et les objectifs du cours"
+              placeholder="Décrivez brièvement le contenu et les objectifs du cours à fin de procéder à la créatrion du plan de ce dernier"
             ></textarea>
           </div>
 
@@ -129,7 +129,7 @@ export default function Home() {
               type="text"
               value={enseignant}
               onChange={(e) => setEnseignant(e.target.value)}
-              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200"
+              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 text-black"
               required
               placeholder="Exemple : M. Dupont"
             />

@@ -7,7 +7,7 @@ interface Cours {
   sujet: string;
   description: string;
   niveau: string;
-  duree: number;
+  duree: string;
   objectif: string;
   enseignant: string;
 }
@@ -17,13 +17,14 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   try {
+    const { id } = await params; // Attendre params
     const filePath = path.join(process.cwd(), "data", "courses.json");
     const fileData = fs.existsSync(filePath)
       ? fs.readFileSync(filePath, "utf8")
       : "[]";
 
     const courses: Cours[] = JSON.parse(fileData);
-    const cours = courses.find((e) => e.id === parseInt(params.id));
+    const cours = courses.find((e) => e.id === parseInt(id)); // Utiliser id
 
     if (!cours) {
       return NextResponse.json(
@@ -33,7 +34,7 @@ export async function GET(
     }
 
     // Créer un fichier JSON temporaire pour le téléchargement
-    const exportPath = path.join(process.cwd(), "data", `course-${cours.id}.json`);
+    const exportPath = path.join(process.cwd(), "data", `course-${cours.id}.json`); // Définir exportPath
     fs.writeFileSync(exportPath, JSON.stringify(cours, null, 2));
 
     // Retourner le fichier comme réponse (downloadable)

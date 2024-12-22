@@ -1,9 +1,9 @@
 {
   "id": 2,
   "sujet": "français",
-  "niveau": "moyen",
-  "duree": "1h30",
-  "description": "ceci est un cours de français moyen",
+  "niveau": "facile",
+  "duree": "1h30min",
+  "description": "ceci est un cours de français facile",
   "objectif": "apprendre les bases de l'arithmétique",
   "enseignant": "Mme Martin"
 }

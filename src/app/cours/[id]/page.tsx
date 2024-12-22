@@ -5,13 +5,14 @@ import { useParams } from "next/navigation";
 import { jsPDF } from "jspdf";
 import "jspdf-autotable";
 import CourseObjective from "@/components/CourseObjective";
+import QCM from "@/components/QCM";
 
 interface Cours {
   id: number;
   sujet: string;
   description: string;
   niveau: string;
-  duree: number;
+  duree: string;
   objectif: string;
   enseignant: string;
 }
@@ -21,7 +22,10 @@ export default function CoursDetails() {
   const [cours, setCours] = useState<Cours | null>(null);
   const [uploadMessage, setUploadMessage] = useState<string | null>(null);
   const [fiche, setFiche] = useState<string | null>(null);
+  const [qcm, setQcm] = useState<string | null>(null);
   const [isGeneratingFiche, setIsGeneratingFiche] = useState(false);
+  const [isGeneratingQCM, setIsGeneratingQCM] = useState(false);
+  const [numberOfQuestions, setNumberOfQuestions] = useState(5); // État pour le nombre de questions QCM
 
   useEffect(() => {
     const fetchCours = async () => {
@@ -88,7 +92,7 @@ export default function CoursDetails() {
       if (response.ok) {
         const data = await response.json();
         setFiche(data.fiche);
-        generatePDF(data.fiche); // Generate the PDF
+        generatePDF(data.fiche);
       } else {
         console.error("Erreur lors de la génération de la fiche.");
       }
@@ -99,29 +103,58 @@ export default function CoursDetails() {
     }
   };
 
-  const generatePDF = (content: string) => {
+  const handleGenerateQCM = async () => {
+    setIsGeneratingQCM(true);
+    try {
+      const response = await fetch(`/api/cours/${id}/qcm?questions=${numberOfQuestions}`);
+      if (response.ok) {
+        const data = await response.json();
+        setQcm(data.qcm);
+        generateQCMPDF(data.qcm);
+      } else {
+        console.error("Erreur lors de la génération du QCM.");
+      }
+    } catch (error) {
+      console.error("Erreur lors de la génération du QCM :", error);
+    } finally {
+      setIsGeneratingQCM(false);
+    }
+  };
+
+  const generateQCMPDF = (qcmContent: string) => {
     const pdf = new jsPDF();
     const marginLeft = 10;
-
-    // Title
+    let yOffset = 20; // Position verticale initiale
+  
     pdf.setFontSize(18);
-    pdf.text("Fiche de Révision", marginLeft, 20);
-
-    // Add course information
+    pdf.text("QCM - Questionnaire", marginLeft, yOffset);
+    yOffset += 10; // Décaler après le titre
+  
     pdf.setFontSize(12);
-    pdf.text(`Sujet: ${cours?.sujet}`, marginLeft, 40);
-    pdf.text(`Niveau: ${cours?.niveau}`, marginLeft, 50);
-    pdf.text(`Durée: ${cours?.duree} minutes`, marginLeft, 60);
-    pdf.text(`Enseignant: ${cours?.enseignant}`, marginLeft, 70);
-
-    // Add Objective
-    pdf.setFontSize(16);
-    pdf.text("Objectif:", marginLeft, 90);
-    pdf.setFontSize(12);
-    pdf.text(content, marginLeft, 100, { maxWidth: 190 });
-
-    // Save the PDF
-    pdf.save(`fiche-revision-${cours?.sujet}.pdf`);
+    pdf.text(`Sujet: ${cours?.sujet}`, marginLeft, yOffset);
+    yOffset += 10;
+    pdf.text(`Niveau: ${cours?.niveau}`, marginLeft, yOffset);
+    yOffset += 10;
+  
+    pdf.setFontSize(14);
+    pdf.text("Questions :", marginLeft, yOffset);
+    yOffset += 10;
+  
+    // Séparer le contenu du QCM en lignes
+    const lines = pdf.splitTextToSize(qcmContent, 180); // Séparer le texte en lignes adaptées à la largeur
+    const maxHeight = pdf.internal.pageSize.height - 20; // Limite de la page
+  
+    // Ajouter chaque ligne et vérifier si on atteint la fin de la page
+    lines.forEach((line, index) => {
+      if (yOffset + 10 > maxHeight) {
+        pdf.addPage(); // Ajouter une nouvelle page si nécessaire
+        yOffset = 20; // Réinitialiser la position
+      }
+      pdf.text(line, marginLeft, yOffset);
+      yOffset += 10; // Décaler pour la ligne suivante
+    });
+  
+    pdf.save(`qcm-${cours?.sujet}.pdf`);
   };
 
   if (!cours) {
@@ -136,36 +169,26 @@ export default function CoursDetails() {
     <div className="max-w-auto min-h-screen mx-auto pt-10 pl-10 pr-10 p-6 bg-white shadow rounded-lg">
       <div className="px-4 sm:px-0">
         <h3 className="text-2xl font-bold text-gray-900">{cours.sujet}</h3>
-        <p className="mt-1 text-sm text-gray-500">
-          Détails du cours et informations pédagogiques.
-        </p>
+        <p className="mt-1 text-sm text-gray-500">Détails du cours et informations pédagogiques.</p>
       </div>
 
       <div className="mt-6 border-t border-gray-100">
         <dl className="divide-y divide-gray-200">
           <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-900">Niveau</dt>
-            <dd className="mt-1 text-sm text-gray-700 sm:col-span-2 sm:mt-0">
-              {cours.niveau.charAt(0).toUpperCase() + cours.niveau.slice(1)}
-            </dd>
+            <dd className="mt-1 text-sm text-gray-700 sm:col-span-2 sm:mt-0">{cours.niveau}</dd>
           </div>
           <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-900">Durée</dt>
-            <dd className="mt-1 text-sm text-gray-700 sm:col-span-2 sm:mt-0">
-              {cours.duree} minutes
-            </dd>
+            <dd className="mt-1 text-sm text-gray-700 sm:col-span-2 sm:mt-0">{cours.duree} minutes</dd>
           </div>
           <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-900">Description</dt>
-            <dd className="mt-1 text-sm text-gray-700 sm:col-span-2 sm:mt-0">
-              {cours.description}
-            </dd>
+            <dd className="mt-1 text-sm text-gray-700 sm:col-span-2 sm:mt-0">{cours.description}</dd>
           </div>
           <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-900">Enseignant</dt>
-            <dd className="mt-1 text-sm text-gray-700 sm:col-span-2 sm:mt-0">
-              {cours.enseignant}
-            </dd>
+            <dd className="mt-1 text-sm text-gray-700 sm:col-span-2 sm:mt-0">{cours.enseignant}</dd>
           </div>
           <div className="bg-gray-50 px-4 py-5 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-900">Objectif</dt>
@@ -177,7 +200,6 @@ export default function CoursDetails() {
       </div>
 
       <div className="mt-6 flex justify-between items-center">
-        {/* Export JSON */}
         <button
           onClick={handleExport}
           className="inline-flex items-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
@@ -185,12 +207,8 @@ export default function CoursDetails() {
           Exporter en JSON
         </button>
 
-        {/* Import JSON */}
         <div className="flex items-center">
-          <label
-            htmlFor="import-json"
-            className="mr-2 text-sm font-medium text-gray-700"
-          >
+          <label htmlFor="import-json" className="mr-2 text-sm font-medium text-gray-700">
             Importer un fichier JSON pour modifier le cours :
           </label>
           <input
@@ -204,27 +222,42 @@ export default function CoursDetails() {
       </div>
 
       {uploadMessage && (
-        <div
-          className={`mt-4 rounded-lg p-4 ${
-            uploadMessage.includes("succès")
-              ? "bg-green-100 text-green-800"
-              : "bg-red-100 text-red-800"
-          }`}
-        >
+        <div className={`mt-4 rounded-lg p-4 ${uploadMessage.includes("succès") ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}`}>
           {uploadMessage}
         </div>
       )}
 
-      {/* Section Fiche de Révision */}
+     
+
       <div className="mt-8">
         <button
           onClick={handleGenerateFiche}
-          className={`inline-flex items-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 ${
-            isGeneratingFiche ? "cursor-not-allowed opacity-50" : ""
-          }`}
+          className={`inline-flex items-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 ${isGeneratingFiche ? "cursor-not-allowed opacity-50" : ""}`}
           disabled={isGeneratingFiche}
         >
           {isGeneratingFiche ? "Génération en cours..." : "Générer Fiche de Révision"}
+        </button>
+      </div>
+
+       {/* Input pour le nombre de questions */}
+       <div className="mt-6">
+        <label className="text-sm font-medium text-gray-700 ">Nombre de questions pour le QCM :</label>
+        <input
+          type="number"
+          min="1"
+          value={numberOfQuestions}
+          onChange={(e) => setNumberOfQuestions(Number(e.target.value))}
+          className="mt-1 p-2 border border-gray-300 rounded-md text-black"
+        />
+      </div>
+
+      <div className="mt-8">
+        <button
+          onClick={handleGenerateQCM}
+          className={`inline-flex items-center rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-green-700 ${isGeneratingQCM ? "cursor-not-allowed opacity-50" : ""}`}
+          disabled={isGeneratingQCM}
+        >
+          {isGeneratingQCM ? "Génération du QCM..." : "Générer QCM"}
         </button>
       </div>
     </div>
