@@ -1,6 +1,4 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
 import { z } from "zod";
 
 interface Cours {
@@ -13,6 +11,7 @@ interface Cours {
   objectif: string;
 }
 
+// Validation des données d'un cours
 const courseSchema = z.object({
   id: z.number().optional(),
   sujet: z.string().min(1, "Le sujet est requis."),
@@ -28,11 +27,18 @@ export async function POST(request: Request) {
     const body = await request.json();
     const validatedCourse = courseSchema.parse(body);
 
-    const filePath = path.join(process.cwd(), "data", "courses.json");
-    const courses: Cours[] = fs.existsSync(filePath)
-      ? JSON.parse(fs.readFileSync(filePath, "utf8"))
-      : [];
+    // URL publique du fichier courses.json dans public
+    const fileUrl = `${process.env.NEXT_PUBLIC_BASE_URL || ""}/data/courses.json`;
 
+    // Lecture du fichier via fetch
+    const response = await fetch(fileUrl);
+    if (!response.ok) {
+      return NextResponse.json({ message: "Erreur lors de la lecture des cours." }, { status: 500 });
+    }
+
+    const courses: Cours[] = await response.json();
+
+    // Modification ou ajout de cours
     if (validatedCourse.id) {
       const index = courses.findIndex((course) => course.id === validatedCourse.id);
       if (index !== -1) {
@@ -45,8 +51,8 @@ export async function POST(request: Request) {
       courses.push({ ...validatedCourse, id: newId });
     }
 
-    fs.writeFileSync(filePath, JSON.stringify(courses, null, 2));
-    return NextResponse.json({ message: "Cours importé avec succès." }, { status: 200 });
+    // Écriture dans le fichier dans public (non supportée dans public, voir explication)
+    return NextResponse.json({ message: "Cours mis à jour localement (non sauvegardé)." }, { status: 200 });
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json({ message: "Erreur de validation.", errors: error.errors }, { status: 400 });

@@ -1,0 +1,236 @@
+[
+  {
+    "id": 1,
+    "sujet": "math",
+    "niveau": "facile",
+    "duree": "1h",
+    "description": "ceci est un cours de math facilertgegrtre",
+    "enseignant": "M. Dupont",
+    "objectif": "apprendre les bases de l'arithmétique"
+  },
+  {
+    "id": 2,
+    "sujet": "français",
+    "niveau": "facile",
+    "duree": "1h30min",
+    "description": "ceci est un cours de français facile",
+    "objectif": "apprendre les bases de l'arithmétique",
+    "enseignant": "Mme Martin"
+  },
+  {
+    "id": 3,
+    "sujet": "aze",
+    "niveau": "facile",
+    "duree": "30min",
+    "description": "c",
+    "objectif": "apprendre les bases de l'arithmétique",
+    "enseignant": "c"
+  },
+  {
+    "id": 4,
+    "sujet": "DANCE",
+    "niveau": "facile",
+    "duree": "30min",
+    "description": "c",
+    "objectif": "COURS DE DANCE",
+    "enseignant": "c"
+  },
+  {
+    "id": 5,
+    "sujet": "Hip-Hop",
+    "niveau": "Facile",
+    "objectif": "Découvrir les bases du hip-hop, apprendre des mouvements simples et comprendre l'histoire et la culture du hip-hop.",
+    "duree": "30min",
+    "description": "Ce cours d'initiation au hip-hop est conçu pour les débutants qui souhaitent découvrir les fondements de cette danse dynamique et expressive. Au cours de cette session de 30 minutes, les participants apprendront des mouvements de base, tout en s'immergeant dans l'histoire et la culture du hip-hop. Le cours sera à la fois pratique et théorique, pour une approche globale de cette danse.",
+    "enseignant": "Hip Hip"
+  },
+  {
+    "id": 6,
+    "sujet": "Vélo",
+    "niveau": "Facile",
+    "duree": "30min",
+    "description": "Ce cours de vélo est destiné aux débutants algériens qui souhaitent s'initier à la pratique du vélo. Il couvre les aspects essentiels tels que la sécurité, l'équipement adéquat, et les compétences de base pour rouler en toute confiance.",
+    "enseignant": "Edui",
+    "objectif": "Apprendre les bases de la pratique du vélo, y compris la sécurité, l'équipement nécessaire et les techniques de conduite."
+  },
+  {
+    "sujet": "erfgegved",
+    "niveau": "difficile",
+    "objectif": "Acquérir des compétences avancées dans le domaine de erfgegved, en permettant aux étudiants de comprendre des concepts complexes et de les appliquer dans des contextes variés.",
+    "duree": "30min",
+    "description": "Ce cours aborde des thématiques avancées liées à erfgegved, examinant des techniques et méthodes spécifiques, tout en intégrant des études de cas pour illustrer les applications pratiques. Les participants seront encouragés à participer à des discussions approfondies et à partager leurs réflexions sur les problématiques soulevées.",
+    "enseignant": "gzbzeg",
+    "id": 7
+  },
+  {
+    "sujet": "efdezdfze",
+    "niveau": "facile",
+    "objectif": "Acquérir des connaissances de base sur le sujet efdezdfze et développer des compétences pratiques.",
+    "duree": "30min",
+    "description": "Ce cours est conçu pour introduire les participants au sujet efdezdfze. Au cours de cette session de 30 minutes, les apprenants exploreront les concepts fondamentaux, les applications pratiques et participeront à des exercices interactifs pour renforcer leur compréhension.",
+    "enseignant": "zceczsczsc",
+    "id": 8
+  },
+  {
+    "sujet": "efdsezfz",
+    "niveau": "intermediaire",
+    "objectif": "Acquérir des connaissances intermédiaires sur le sujet de efdsezfz et développer des compétences pratiques à travers des exercices et des discussions.",
+    "duree": "30min",
+    "description": "Ce cours de 30 minutes abordera le sujet de efdsezfz, en se concentrant sur les aspects clés et les applications pratiques. Les participants auront l'occasion de discuter des concepts et d'appliquer leurs connaissances à des études de cas concrètes. Les astuces et les techniques seront également explorées pour enrichir l'expérience d'apprentissage.",
+    "enseignant": "zefez",
+    "id": 9
+  },
+  {
+    "sujet": "Introduction à la programmation",
+    "niveau": "Facile",
+    "objectif": "Comprendre les concepts de base de la programmation et être capable d'écrire un simple programme.",
+    "duree": 1,
+    "description": "Ce cours offre une introduction aux concepts fondamentaux de la programmation informatique. Les participants apprendront les éléments nécessaires pour commencer à programmer, y compris la syntaxe, la logique de programmation, et la structure de base d'un programme. À l'issue de cette session, les étudiants auront acquis une compréhension de base qui leur permettra d'aborder des langages de programmation plus avancés.",
+    "enseignant": "John Doe",
+    "id": 10
+  },
+  {
+    "sujet": "Introduction à la programmation",
+    "niveau": "facile",
+    "objectif": "Comprendre les concepts de base de la programmation informatique et acquérir des compétences fondamentales en codage.",
+    "duree": "1h",
+    "description": "Ce cours d'une heure est conçu pour les débutants qui souhaitent se familiariser avec la programmation. Les participants apprendront les principes fondamentaux de la programmation informatique, y compris les types de données, les structures de contrôle, et les bonnes pratiques de codage. À travers des exemples pratiques et des exercices, les étudiants développeront une base solide pour poursuivre leur apprentissage dans le domaine de la technologie.",
+    "enseignant": "John Doe",
+    "id": 11
+  },
+  {
+    "sujet": "rthgrtghrt",
+    "niveau": "facile",
+    "objectif": "Comprendre les concepts de base liés au sujet et être capable de les appliquer dans des scénarios simples.",
+    "duree": "30min",
+    "description": "Ce cours propose une introduction au sujet de rthgrtghrt, permettant aux participants de se familiariser avec les idées fondamentales et les applications pratiques dans un cadre accessible.",
+    "enseignant": "hrthrt",
+    "id": 12
+  },
+  {
+    "sujet": "Introduction à la programmation",
+    "niveau": "facile",
+    "objectif": "À l'issue de ce cours, les étudiants seront capables de comprendre les concepts fondamentaux de la programmation, d'écrire des lignes de code simples et d'avoir une première approche pratique du développement.",
+    "duree": "1h",
+    "description": "Ce cours est une introduction aux concepts de base de la programmation informatique. Nous explorerons les principes fondamentaux qui sous-tendent la programmation, tels que les variables, les types de données, les structures conditionnelles et les boucles. Dans un environnement interactif, les étudiants auront également l'occasion de pratiquer ces concepts à travers des exercices pratiques.",
+    "enseignant": "John Doe",
+    "id": 13
+  },
+  {
+    "id": 14,
+    "sujet": "Introduction à la programmation",
+    "niveau": "facile",
+    "duree": "1h",
+    "description": "Une introduction aux concepts de base de la programmation informatique.",
+    "enseignant": "John Doe",
+    "objectif": "### Plan de Cours : Introduction à la Programmation\n\n**Niveau :** Facile  \n**Durée :** 1 heure  \n**Enseignant :** John Doe  \n\n#### Objectifs du cours :\n- Comprendre les concepts fondamentaux de la programmation.\n- Apprendre les éléments de base d'un langage de programmation (ex. : variables, types de données, structures de contrôle).\n- Acquérir des compétences de base pour écrire et exécuter des programmes simples.\n\n#### Structure du cours :\n\n1. **Introduction (10 minutes)**\n   - Présentation de l'enseignant et des participants.\n   - Objectifs du cours.\n   - Importance de la programmation dans le monde moderne.\n\n2. **Concepts de base (15 minutes)**\n   - Qu'est-ce que la programmation ? \n   - Différences entre programmation et codage.\n   - Introduction aux langages de programmation.\n   - Éléments de base :\n     - Variables et types de données.\n     - Opérateurs.\n\n3. **Structures de contrôle (15 minutes)**\n   - Instruction conditionnelle (exemple : if-else).\n   - Boucles (exemple : for, while).\n   - Exemples pratiques et applications.\n\n4. **Écriture d'un Programme Simple (15 minutes)**\n   - Utilisation d’un environnement de développement (IDE).\n   - Démonstration : écrire et exécuter un programme simple (par exemple, un programme d'affichage « Bonjour, monde ! »).\n   - Exploration des erreurs communs et comment les corriger.\n\n5. **Questions et réponses (5 minutes)**\n   - Ouverture pour des questions des participants.\n   - Discussion sur les prochaines étapes pour approfondir la programmation.\n\n6. **Conclusion (5 minutes)**\n   - Récapitulatif des concepts abordés.\n   - Ressources pour aller plus loin (livres, sites web, cours en ligne).\n   - Remerciements et clôture du cours.\n\n#### Matériel nécessaire :\n- Ordinateurs avec un IDE installé (ex. : Python, Scratch).\n- Projecteur pour la démonstration.\n- Support de cours à distribuer (si applicable).\n\n### Notes :\n- Encourager l’interaction tout au long du cours.\n- Adapter le rythme du cours en fonction de la compréhension des participants."
+  },
+  {
+    "id": 15,
+    "sujet": "test20DOUZE",
+    "niveau": "difficile",
+    "duree": "1h",
+    "description": "DFEDS",
+    "enseignant": "sdcsdvcdsv",
+    "objectif": "Voici un plan de cours structuré basé sur les informations fournies :\n\n---\n\n### Plan de Cours\n\n**Titre du cours :** Test 20 DOUZE  \n**Niveau :** Difficile  \n**Durée :** 1 heure  \n**Enseignant :** sdcsdvcdsv\n\n#### Objectifs du cours :\n- Comprendre les concepts clés de DFEDS.\n- Appliquer des méthodes avancées nécessaires pour résoudre des problèmes liés au sujet.\n- Évaluer la progression des étudiants à travers des exercices pratiques et théoriques.\n\n#### Structure du Cours :\n\n1. **Introduction (10 minutes)**\n   - Présentation de l’enseignant.\n   - Brève introduction au sujet « Test 20 DOUZE ».\n   - Annonce des objectifs pédagogiques.\n\n2. **Théorie (20 minutes)**\n   - Exposé des concepts fondamentaux de DFEDS.\n     - Définition et importance dans le domaine d'étude.\n     - Applications pratiques de ces concepts.\n   - Discussion sur les défis rencontrés lorsque l’on travaille avec DFEDS dans un contexte avancé.\n\n3. **Pratique (20 minutes)**\n   - Exercices individuels ou en petits groupes sur des cas pratiques liés à DFEDS.\n     - Problèmes complexes à résoudre en utilisant les concepts appris.\n   - Supervision par l'enseignant pour aider à la compréhension et à la résolution.\n\n4. **Conclusion et Évaluation (10 minutes)**\n   - Récapitulatif des points clés abordés durant le cours.\n   - Discussion ouverte pour répondre aux questions des étudiants.\n   - Évaluation rapide pour mesurer la compréhension (quiz ou questions-réponses).\n\n#### Ressources :\n- Documentation et manuels sur DFEDS.\n- Accès à des outils logiciels nécessaires pour l'application des concepts.\n- Liens vers des lectures supplémentaires pour approfondir les connaissances.\n\n---\n\nN'hésitez pas à ajuster les horaires ou le contenu selon les besoins spécifiques des étudiants ou le contexte du cours."
+  },
+  {
+    "id": 16,
+    "sujet": "Introduction à la programmation",
+    "niveau": "facile",
+    "duree": "1h",
+    "description": "Une introduction aux concepts de base de la programmation informatique.",
+    "enseignant": "John Doe",
+    "objectif": "# Plan de cours : Introduction à la programmation\n\n## Informations générales\n- **Sujet** : Introduction à la programmation\n- **Niveau** : Facile\n- **Durée** : 1 heure\n- **Enseignant** : John Doe\n\n## Objectifs du cours\nÀ la fin de ce cours, les participants seront capables de :\n- Comprendre les concepts de base de la programmation.\n- Écrire un programme simple en utilisant un langage de programmation adapté.\n- Appréhender les différentes structures de contrôle et de répétition.\n\n## Plan de cours\n\n### I. Introduction (10 minutes)\n   - Présentation de l'enseignant et des participants.\n   - Objectifs du cours et importance de la programmation.\n   - Bref aperçu des domaines d'application de la programmation.\n\n### II. Concepts de base de la programmation (20 minutes)\n   - A. **Variables et types de données**\n     - Définition d'une variable.\n     - Types de données courants (entiers, chaînes de caractères, booléens).\n   - B. **Opérateurs**\n     - Opérateurs arithmétiques, logiques et de comparaison.\n   - C. **Structures de contrôle**\n     - Instructions conditionnelles (if, else).\n     - Instructions de répétition (boucles for, while).\n\n### III. Mise en pratique : Écriture d’un programme simple (20 minutes)\n   - A. Présentation d’un exercice pratique (ex. : calculatrice simple).\n   - B. Écriture du code ensemble, ligne par ligne.\n   - C. Exécution du programme et discussion des résultats.\n\n### IV. Conclusion et questions (10 minutes)\n   - Résumé des concepts abordés.\n   - Importance de la pratique en programmation.\n   - Session de questions et réponses.\n   - Suggestions de ressources pour approfondir ses connaissances.\n\n## Matériel nécessaire\n- Ordinateur avec un environnement de développement installé (éditeur de texte, interpréteur ou compilateur pour un langage de programmation adapté).\n- Projecteur pour la présentation.\n- Fiches récapitulatives sur les concepts de base abordés.\n\n## Évaluation\n- Aucune évaluation formelle, mais un feedback informel sur l'exercice pratique et la participation.\n\n## Ressources complémentaires\n- Liens vers des tutoriels en ligne et des livres sur la programmation pour les débutants. \n\nCe plan de cours structuré est conçu pour être interactif et engageant, permettant aux participants d'acquérir des connaissances fondamentales en programmation tout en pratiquant activement."
+  },
+  {
+    "id": 17,
+    "sujet": "Introduction à la programmation",
+    "niveau": "facile",
+    "duree": "1h",
+    "description": "Une introduction aux concepts de base de la programmation informatique.",
+    "enseignant": "John Doe",
+    "objectif": "# Plan de Cours : Introduction à la Programmation\n\n## Informations Générales\n- **Sujet :** Introduction à la programmation\n- **Niveau :** Facile\n- **Durée :** 1h\n- **Enseignant :** John Doe\n\n## Objectifs du Cours\nÀ la fin de ce cours, les étudiants seront capables de :\n1. Comprendre les concepts fondamentaux de la programmation informatique.\n2. Identifier les différents types de langages de programmation.\n3. Écrire des simples algorithmies.\n4. Utiliser des notions de base telles que les variables, les types de données, et les structures conditionnelles.\n\n## Plan de Cours\n\n### 1. Introduction (10 minutes)\n   - Présentation de l'enseignant.\n   - Objectifs et importance de la programmation.\n   - Vue d'ensemble du cours.\n\n### 2. Concepts de Base (15 minutes)\n   - Définition de la programmation.\n   - Explication des langages de programmation :\n     - Langages compilés vs langages interprétés.\n     - Exemples de langages populaires (Python, Java, JavaScript).\n   - Introduction aux développeurs : rôles et types de développeurs.\n\n### 3. Syntaxe et Structure (15 minutes)\n   - Variables et types de données :\n     - Entiers, flottants, chaînes de caractères, booléens.\n   - Structures de contrôle :\n     - Instructions conditionnelles (if/else).\n     - Boucles simples (for, while).\n   - Écriture d'exemples simples.\n\n### 4. Écrire un Algorithme (10 minutes)\n   - Qu'est-ce qu'un algorithme ?\n   - Exercice pratique : écrire un algorithme simple pour résoudre un problème (ex : calcul de la somme de deux nombres).\n   - Discussion sur l'importance des algorithmes en programmation.\n\n### 5. Conclusion et Questions (10 minutes)\n   - Récapitulatif des concepts abordés.\n   - Répondre aux questions des étudiants.\n   - Présentation des ressources pour aller plus loin (livres, sites web, cours en ligne).\n\n## Matériel Nécessaire\n- Ordinateur avec accès à Internet ou logiciels de programmation.\n- Projeté visuel (diapositives PowerPoint ou tableau blanc).\n\n## Évaluation\n- Participation durant le cours.\n- Exercices pratiques durant le cours.\n\n## Ressources Complémentaires\n- Liens vers des tutoriels en ligne (Codecademy, freeCodeCamp).\n- Suggestions de livres pour débutants en programmation. \n\n---\n\nCe plan de cours vise à établir une base solide et une compréhension des concepts de programmation pour les débutants."
+  },
+  {
+    "id": 18,
+    "sujet": "Introduction à la programmation",
+    "niveau": "facile",
+    "duree": "1h",
+    "description": "Une introduction aux concepts de base de la programmation informatique.",
+    "enseignant": "John Doe",
+    "objectif": "Voici un plan de cours structuré pour une \"Introduction à la programmation\" :\n\n### Plan de Cours : Introduction à la programmation\n\n**Niveau :** Facile  \n**Durée :** 1 heure  \n**Enseignant :** John Doe  \n\n---\n\n#### 1. Introduction (10 minutes)\n   - Présentation de l'enseignant et des participants \n   - Objectifs de la session \n   - Importance de la programmation dans le monde moderne \n\n#### 2. Concepts de base de la programmation (15 minutes)\n   - Qu'est-ce que la programmation ?\n   - Les langages de programmation : définition et exemples (Python, Java, etc.)\n   - L'importance de la syntaxe et de la grammaire en programmation\n\n#### 3. Structures de base (15 minutes)\n   - Variables : définition et utilisation\n   - Types de données : entier, flottant, chaîne de caractères\n   - Opérateurs : arithmétiques et logiques\n\n#### 4. Contrôle de flux (10 minutes)\n   - Instructions conditionnelles (if, else) \n   - Boucles (for, while) : explication de leur utilité \n\n#### 5. Exercices pratiques (5 minutes)\n   - Exercice simple : écrire un programme pour afficher \"Bonjour, monde !\"\n   - Discussion sur les défis rencontrés \n\n#### 6. Conclusion et questions (5 minutes)\n   - Résumé des concepts abordés \n   - Ressources supplémentaires pour approfondir (livres, sites web, etc.)\n   - Questions et réponses avec les participants \n\n---\n\n### Objectifs pédagogiques\nÀ la fin de cette heure de cours, les participants seront capables de :\n- Comprendre les concepts de base de la programmation \n- Écrire un simple programme utilisant les connaissances acquises \n- Identifier les structures de contrôle de flux dans la programmation \n\n### Matériel et ressources nécessaires\n- Ordinateurs avec un éditeur de code (par exemple, VSCode ou autre)\n- Projecteur pour les présentations\n- Ressources supplémentaires (liens, livres recommandés)\n\n---\n\nCe plan de cours peut être ajusté en fonction du niveau de connaissance des participants et des objectifs spécifiques de l'enseignant."
+  },
+  {
+    "id": 19,
+    "sujet": "Introduction à la programmation",
+    "niveau": "facile",
+    "duree": "1h",
+    "description": "Une introduction aux concepts de base de la programmation informatique.",
+    "enseignant": "John Doe",
+    "objectif": "# Plan de cours : Introduction à la programmation\n\n## Informations du cours\n- **Sujet :** Introduction à la programmation\n- **Niveau :** Facile\n- **Durée :** 1 heure\n- **Enseignant :** John Doe\n\n## Objectifs du cours\nÀ la fin de ce cours, les élèves seront capables de :\n1. Comprendre les concepts de base de la programmation.\n2. Identifier les éléments d’un programme simple.\n3. Écrire un programme simple utilisant des instructions de base.\n\n## Plan de cours\n\n### I. Introduction (10 minutes)\n   A. Présentation de l’enseignant\n   B. Présentation des objectifs du cours\n   C. Importance de la programmation dans le monde moderne\n\n### II. Concepts de base de la programmation (15 minutes)\n   A. Qu'est-ce qu'un algorithme ?\n   B. Introduction aux langages de programmation\n      1. Exemples de langages populaires (Python, Java, etc.)\n   C. Les éléments fondamentaux d'un programme\n      1. Variables\n      2. Types de données\n      3. Structures de contrôle (conditions et boucles)\n\n### III. Écriture d'un programme simple (15 minutes)\n   A. Mise en place de l'environnement (IDE ou éditeur de texte)\n   B. Écriture d'un programme simple (exemple : un calculateur basique)\n      1. Explication étape par étape\n      2. Démonstration de l’exécution du programme\n\n### IV. Activité pratique (15 minutes)\n   A. Exercice : écrire un programme similaire avec des modifications\n      1. Variables personnalisées\n      2. Instructions conditionnelles simples\n   B. Aide individuelle et conseils\n\n### V. Conclusion et questions (5 minutes)\n   A. Récapitulatif des concepts abordés\n   B. Q&R : répondre aux questions des élèves\n   C. Ressources pour approfondir la connaissance de la programmation\n\n## Matériel nécessaire\n- Ordinateur avec un éditeur de texte ou un IDE installé\n- Projecteur pour démonstration (si en présentiel)\n- Accès à des ressources en ligne (pour les études complémentaires)\n\n## Évaluation\n- Participation à l'activité pratique\n- Évaluation des questions posées à la fin du cours\n\n---\n\nCe plan de cours peut être ajusté en fonction du niveau d'interaction et des questions des élèves pendant la formation."
+  },
+  {
+    "id": 20,
+    "sujet": "Introduction à la programmation",
+    "niveau": "facile",
+    "duree": "1h",
+    "description": "Une introduction aux concepts de base de la programmation informatique.",
+    "enseignant": "John Doe",
+    "objectif": "### Plan de Cours : Introduction à la Programmation\n\n**Niveau :** Facile  \n**Durée :** 1 heure  \n**Enseignant :** John Doe  \n\n---\n\n#### Objectifs du Cours\n- Comprendre les concepts fondamentaux de la programmation.\n- Se familiariser avec la syntaxe de base d'un langage de programmation.\n- Être capable de créer un programme simple.\n\n---\n\n#### Structure du Cours\n\n**1. Introduction (10 minutes)**\n   - Présentation de l'enseignant et du contexte du cours.\n   - Objectifs du cours et aperçu des sujets abordés.\n   - Importance de la programmation dans le monde moderne.\n\n**2. Concepts de Base (15 minutes)**\n   - Qu'est-ce que la programmation ?\n     - Définition et but.\n     - Exemples de langages de programmation.\n   - Les différentes composantes d'un programme :\n     - Variables et types de données.\n     - Instruction conditionnelle (if, else).\n     - Boucles (for, while).\n\n**3. Syntaxe et Structure (15 minutes)**\n   - Introduction à la syntaxe d'un langage simple (ex: Python).\n     - Éléments de base : indentation, commentaires.\n     - Écriture d'un programme simple : \"Hello, World!\".\n   - Présentation des fonctions :\n     - Définir et appeler une fonction.\n     - Exemples pratiques.\n\n**4. Pratique (15 minutes)**\n   - Activité pratique : Écrire un programme simple.\n     - Exercice : Créer un programme qui demande le nom de l'utilisateur et affiche un message personnalisé.\n   - Discussion et retour sur les résultats des élèves.\n\n**5. Conclusion et Questions (5 minutes)**\n   - Récapitulatif des concepts clés abordés.\n   - Répondre aux questions des participants.\n   - Suggestions de ressources pour approfondir les connaissances en programmation.\n\n---\n\n#### Ressources Recommandées\n- Livres et tutoriels en ligne pour débutants.\n- Environnements de développement et outils recommandés (ex : Jupyter Notebook, Replit).\n\n---\n\nCe plan de cours structuré vous permettra de guider efficacement un groupe d'apprenants à travers les bases de la programmation en une heure tout en encourageant l'interaction et la pratique."
+  },
+  {
+    "id": 21,
+    "sujet": "Histoire de la guerre 14-18",
+    "niveau": "difficile",
+    "duree": "1h30min",
+    "description": "Fais moi un plan de la grande guerre mondiale",
+    "enseignant": "M.His",
+    "objectif": "**Plan de cours : Histoire de la guerre 14-18**\n\n**Niveau** : Difficile  \n**Durée** : 1h30  \n**Enseignant** : M. His  \n\n---\n\n### I. Introduction (10 minutes)\n  A. Présentation du sujet  \n  B. Objectifs du cours  \n     1. Comprendre les causes et les conséquences de la Première Guerre mondiale  \n     2. Analyser l'impact de la guerre sur les sociétés et les politiques  \n\n### II. Contexte historique (20 minutes)\n  A. Les causes de la guerre  \n     1. Conflits nationalistes et impérialistes  \n     2. Alliances militaires et tensions diplomatiques  \n  B. La situation en Europe avant 1914  \n     1. Les grandes puissances et leurs intérêts  \n     2. La crise des Balkans  \n\n### III. Le déroulement de la guerre (30 minutes)\n  A. Les principales phases du conflit  \n     1. 1914 : Le déclenchement et les premières batailles  \n     2. 1915-1916 : La guerre de tranchées et les grandes offensives  \n     3. 1917-1918 : L'entrée des États-Unis et la fin de la guerre  \n  B. Les batailles clés  \n     1. La bataille de Verdun  \n     2. La bataille de la Somme  \n     3. La bataille de Gallipoli  \n\n### IV. Conséquences de la guerre (20 minutes)\n  A. Répercussions politiques  \n     1. Chutes d'empires (Allemand, Austro-Hongrois, Ottoman, Russe)  \n     2. La création de nouveaux États  \n  B. Impact social et économique  \n     1. Les pertes humaines et les traumatismes  \n     2. Les changements dans les rôles des femmes  \n     3. Les conséquences économiques et la crise de 1929  \n\n### V. Conclusion et discussions (10 minutes)\n  A. Synthèse des points abordés  \n  B. Questions et réflexions  \n     1. Quelles leçons peut-on tirer de la Première Guerre mondiale?  \n     2. Comment cet événement a-t-il façonné le XXe siècle?  \n\n### VI. Assignation d'une lecture / recherches supplémentaires (5 minutes)\n  A. Suggestions de livres et d'articles  \n  B. Projets individuels ou en groupe sur des thèmes spécifiques  \n\n---\n\n**Note** : Les étudiants sont encouragés à participer activement aux discussions et à poser des questions tout au long du cours. Les approches analytiques et critiques seront valorisées."
+  },
+  {
+    "id": 22,
+    "sujet": "Histoire de la guerre 14-18",
+    "niveau": "difficile",
+    "duree": "1h30min",
+    "description": "Fais moi un plan de la grande guerre mondiale",
+    "enseignant": "M.His",
+    "objectif": "**Plan de cours : Histoire de la guerre 14-18**\n\n**Niveau : Difficulté élevée**  \n**Durée : 1h30min**  \n**Enseignant : M. His**\n\n---\n\n### I. Introduction (10 minutes)\n   A. Présentation du sujet\n      1. Contexte historique\n      2. Importance de la Première Guerre mondiale\n   B. Objectifs du cours\n      1. Comprendre les causes de la guerre\n      2. Analyser les conséquences et l'impact mondial\n\n### II. Les causes de la guerre (20 minutes)\n   A. Les tensions préexistantes en Europe\n      1. Nationalisme\n      2. Impérialisme\n      3. Alliances et rivalités (Triple Entente et Triple Alliance)\n   B. Événements déclencheurs\n      1. L'assassinat de l'archiduc François-Ferdinand\n      2. La déclaration de guerre\n\n### III. Le déroulement de la guerre (30 minutes)\n   A. Les principales phases de la guerre\n      1. 1914 : La guerre de mouvement\n      2. 1915-1916 : La guerre de position et les tranchées\n      3. 1917 : Les nouveaux fronts et l'entrée des États-Unis\n      4. 1918 : La fin de la guerre et l'armistice\n   B. Les grandes batailles\n      1. La bataille de la Marne\n      2. La bataille de Verdun\n      3. La bataille de la Somme\n   C. Les innovations militaires\n      1. Char d'assaut\n      2. Aviation et guerre aérienne\n      3. Gaz toxiques\n\n### IV. Les conséquences de la guerre (20 minutes)\n   A. Conséquences politiques\n      1. Changements de frontières en Europe\n      2. Chute des empires (Allemand, Austro-Hongrois, Ottoman, Russe)\n   B. Conséquences économiques et sociales\n      1. Coûts humains et blessures\n      2. Répercussions économiques\n      3. Mouvements sociaux et politiques (révolutions)\n   C. Impact culturel et mémoriel\n      1. Littérature et art après-guerre\n      2. La mémoire de la guerre\n\n### V. Conclusion et questions (10 minutes)\n   A. Récapitulatif des points clés\n   B. Discussion ouverte\n      1. Réflexion sur l'héritage de la guerre\n      2. Questions des étudiants\n\n---\n\n### Matériel nécessaire\n   - Diaporama pour présentation\n   - Extraits de documents historiques (lettres, discours, articles)\n   - Cartes géographiques montrant les fronts\n\n### Évaluation\n   - Participation en classe\n   - Réflexions écrites sur des thèmes spécifiques abordés (optionnel)\n\n---\n\nCe plan de cours structuré offre une vue d'ensemble complète du sujet, facilitant ainsi la compréhension des enjeux complexes de la Première Guerre mondiale tout en permettant des interactions actives avec les étudiants."
+  },
+  {
+    "id": 23,
+    "sujet": "Faire un projet en React",
+    "niveau": "facile",
+    "duree": "30min",
+    "description": "Fais moi un plan de cours pour la création d'un projet en React",
+    "enseignant": "Skurt",
+    "objectif": "### Plan de Cours : Création d'un Projet en React\n\n#### Sujet : Faire un projet en React\n#### Niveau : Facile\n#### Durée : 30 minutes\n#### Enseignant : Skurt\n\n---\n\n#### Objectifs du cours :\n- Comprendre les bases de la création d'un projet en React.\n- Apprendre à configurer et démarrer un projet React.\n- Créer un composant simple et l'afficher à l'écran.\n\n---\n\n#### Plan détaillé :\n\n1. **Introduction à React (5 minutes)**\n   - Présentation de React et de son utilité.\n   - Aperçu des avantages d'utiliser React pour le développement d'applications web.\n\n2. **Pré-requis (5 minutes)**\n   - Vérification des requis : \n     - Installation de Node.js et npm (si ce n'est pas déjà fait).\n     - Outils nécessaires : éditeur de code (comme Visual Studio Code).\n\n3. **Création d'un projet React (10 minutes)**\n   - Utilisation de Create React App pour initialiser un nouveau projet.\n     - Commande : `npx create-react-app nom-du-projet`.\n   - Navigation dans le répertoire du projet créé.\n   - Explication rapide de la structure des fichiers générés.\n\n4. **Création d'un composant simple (5 minutes)**\n   - Introduction à la notion de composants en React.\n   - Création d'un composant fonctionnel simple (ex. : un message d'accueil).\n   - Édition du fichier `App.js` pour intégrer le nouveau composant.\n\n5. **Affichage du composant dans l'interface (5 minutes)**\n   - Lancement de l'application avec `npm start`.\n   - Visualisation du composant créé dans le navigateur.\n   - Conclusion sur l'importance de l'architecture des composants.\n\n6. **Questions et réponses (5 minutes)**\n   - Ouverture sur des questions éventuelles des participants.\n   - Discussion sur les prochaines étapes pour explorer davantage React.\n\n---\n\n#### Méthodes pédagogiques :\n- Présentation théorique rapide.\n- Démonstration en direct via un partage d'écran.\n- Exercices pratiques en temps réel.\n\n#### Matériel :\n- Ordinateurs avec Node.js et npm installés.\n- Éditeur de code installé.\n- Connexion internet pour accéder à la documentation et aux ressources en ligne.\n\n---\n\n#### Conclusion :\n- Résumé des points clés abordés durant le cours.\n- Suggestions de ressources pour continuer à apprendre React.\n\n---\n\nCe plan assure une compréhension des bases de React dans un temps limité et encourage la pratique avec un projet simple."
+  },
+  {
+    "id": 24,
+    "sujet": "Histoire de la guerre 39-45",
+    "niveau": "facile",
+    "duree": "30min",
+    "description": "Histoire 39-45",
+    "enseignant": "ferf",
+    "objectif": "**Plan de Cours : Histoire de la guerre 39-45**\n\n**Niveau** : Facile  \n**Durée** : 30 minutes  \n**Enseignant** : Ferf\n\n---\n\n### Objectifs du Cours\n1. Comprendre les causes de la Seconde Guerre mondiale.\n2. Identifier les principaux événements de la guerre et leurs impacts.\n3. Reconnaître les acteurs majeurs du conflit.\n\n### Structure du Cours\n\n#### I. Introduction à la Seconde Guerre mondiale (5 min)\n   - Lecture d'une citation célèbre sur la guerre.\n   - Brève présentation du sujet et de son importance historique.\n   \n#### II. Causes de la guerre (10 min)\n   - **A. Contexte historique**  \n     - Terminaison de la Première Guerre mondiale.  \n     - Traité de Versailles et ses conséquences.\n   - **B. Montée des totalitarismes**  \n     - Nazisme en Allemagne.  \n     - Fascisme en Italie.\n   - **C. Échec de la Société des Nations**  \n     - Incapacité à prévenir les conflits.\n\n#### III. Principaux événements de la guerre (10 min)\n   - **A. 1939-1941 : Les débuts de la guerre**  \n     - Invasion de la Pologne.  \n     - Bataille de France.  \n   - **B. 1941-1943 : Le tournant**  \n     - Opération Barbarossa (invasion de l'URSS).  \n     - Bataille de Stalingrad.\n   - **C. 1944-1945 : La fin de la guerre**  \n     - Débarquement de Normandie.  \n     - Chute de Berlin.\n\n#### IV. Acteurs majeurs de la guerre (3 min)\n   - Présentation des leaders militaires et politiques.\n   - Rôle des Alliés vs. Axe.\n\n#### V. Conclusion et discussion (2 min)\n   - Résumé des points abordés.\n   - Questions ouvertes pour engager les élèves.\n\n#### VI. Ressources complémentaires (facultatif)\n   - Suggestions de livres, documentaires et sites internet pour approfondir le sujet.\n\n---\n\n### Évaluation\n- Aucune évaluation formelle pour ce cours introductif, mais un retour des élèves sur ce qu'ils ont retenu peut être demandé.\n\n### Matériel Nécessaire\n- Projecteur (si présentation disponible).\n- Fiches de résumé des événements et acteurs clés (facultatif).\n\n### Notes pour l’Enseignant\n- Adapter le contenu à l'audience selon les connaissances préalables.\n- Encourager l'interaction et la participation lors des discussions."
+  },
+  {
+    "id": 25,
+    "sujet": "test",
+    "niveau": "facile",
+    "duree": "30min",
+    "description": "fais moi un plan de cours tructuré ",
+    "enseignant": "test",
+    "objectif": "**Plan de Cours Structuré**\n\n**Sujet :** Test  \n**Niveau :** Facile  \n**Durée :** 30 minutes  \n**Enseignant :** Test\n\n---\n\n### Objectifs du Cours :\n1. Comprendre les concepts de base associés au sujet du test.\n2. Développer des compétences pour réussir le test.\n3. Appliquer les connaissances acquises à travers des exercices pratiques.\n\n### Matériel Nécessaire :\n- Tableau blanc et marqueurs\n- Ressources imprimées (fiches de révision)\n- Exemples de tests pratiques\n\n### Déroulement du Cours :\n\n#### 1. Introduction (5 minutes)\n   - Présentation de l'enseignant et des objectifs du cours.\n   - Brève explication de l'importance du test et de ce que les étudiants peuvent en attendre.\n\n#### 2. Théorie et Concepts de Base (10 minutes)\n   - Expliquer les notions clés qui seront abordées dans le test. \n     - Définition et types de tests \n     - Structure d’un test typique \n   - Discuter des stratégies de préparation pour un test efficace.\n\n#### 3. Exercices Pratiques (10 minutes)\n   - Distribuer des exemples de questions de test.\n   - Réaliser ensemble un ou deux exercices en direct pour illustrer comment aborder les questions.\n   - Encourager la participation des étudiants et répondre aux questions.\n\n#### 4. Conclusion et Questions (5 minutes)\n   - Résumer les points clés abordés durant le cours.\n   - Ouvrir le dialogue pour toute question ou clarification nécessaire concernant le test.\n   - Encourager les étudiants à réviser et à se préparer en utilisant les ressources fournies.\n\n#### 5. Devoirs (facultatif)\n   - Proposer des exercices supplémentaires pour la maison afin de renforcer les compétences acquises.\n\n---\n\n### Évaluation :\n- Observation des participations durant le cours.\n- Devoirs notés (facultatif) pour évaluer la compréhension des concepts présentés.\n\n### Remarques :\n- Adapter le contenu en fonction du public et de leurs connaissances préalables.\n- Prévoir du temps pour des pauses si nécessaire. \n\n---\n\n**Fin du Plan de Cours** \n\nCe plan peut être ajusté en fonction des besoins spécifiques du groupe d'étudiants et des ressources disponibles."
+  },
+  {
+    "id": 26,
+    "sujet": "Les dragons céleste",
+    "niveau": "expert",
+    "duree": "1h",
+    "description": "Explication de qui sont les dragons céleste de One piece à qu'elle comunauté de la vie réel ils peuvent être comparé",
+    "enseignant": "Dragon Celeste",
+    "objectif": "## Plan de cours : Les Dragons Célestes\n\n### Informations Générales\n- **Sujet :** Les Dragons Célestes\n- **Niveau :** Expert\n- **Durée :** 1 heure\n- **Enseignant :** Dragon Celeste\n\n### Objectifs du Cours\nÀ la fin de ce cours, les participants seront capables de :\n1. Comprendre les caractéristiques et les rôles des Dragons Célestes dans l'univers de One Piece.\n2. Établir des comparaisons entre les Dragons Célestes et certaines communautés réelles.\n3. Analyser l'impact des Dragons Célestes sur l'intrigue et les thèmes de la série.\n\n### Plan de Cours\n\n#### I. Introduction (10 minutes)\n  A. Présentation de l'enseignant\n  B. Brève introduction au monde de One Piece\n  C. Objectifs du cours\n\n#### II. Qui sont les Dragons Célestes ? (15 minutes)\n  A. Définition et caractéristiques\n     1. Origine et statut\n     2. Pouvoir et privilèges\n  B. Rôle dans l'intrigue de One Piece\n     1. Influence sur le Gouvernement Mondial\n     2. Conflits majeurs liés aux Dragons Célestes\n\n#### III. Comparaison avec des communautés réelles (20 minutes)\n  A. Exemples de communautés ou de classes privilégiées dans la vie réelle\n     1. Noblesse et aristocratie\n     2. Élites économiques et politiques\n  B. Discussion sur les parallèles\n     1. Les privilèges et leurs conséquences\n     2. Réactions et résistance des groupes marginalisés\n\n#### IV. Analyse de l'impact des Dragons Célestes dans One Piece (10 minutes)\n  A. Thèmes abordés\n     1. Injustice sociale\n     2. Luttons contre l'oppression\n  B. Réflexion sur l'héritage des Dragons Célestes dans la culture pop et dans d'autres œuvres\n\n#### V. Conclusion et discussions ouvertes (5 minutes)\n  A. Récapitulatif des points clés\n  B. Questions et réponses\n  C. Réflexions finales sur le rôle des dragons célestes dans les récits modernes et leur pertinence\n\n### Ressources Supplémentaires\n- Lecture recommandée : Chapitres spécifiques de One Piece traitant des Dragons Célestes.\n- Articles et documentaires sur les classes sociales dans l'histoire.\n- Forum de discussion pour prolonger le débat après le cours.\n\n### Évaluation\n- Discussion en groupe et feedback sur les comparaisons établies.\n- Éventuels quizz ou exercices en ligne pour solidifier la compréhension des concepts présentés.\n\n---\n\nCe plan de cours structuré garantit une exploration approfondie du sujet tout en favorisant l'interaction et la réflexion critique parmi les participants."
+  }
+]

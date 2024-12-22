@@ -1,15 +1,20 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
 
 export async function GET() {
   try {
-    const filePath = path.join(process.cwd(), "data", "courses.json");
-    const fileData = fs.existsSync(filePath)
-      ? fs.readFileSync(filePath, "utf8")
-      : "[]";
+    // Construire l'URL du fichier dans le dossier public
+    const fileUrl = `${process.env.NEXT_PUBLIC_BASE_URL || ""}/data/courses.json`;
 
-    const courses = JSON.parse(fileData);
+    // Récupérer les données via fetch
+    const response = await fetch(fileUrl);
+    if (!response.ok) {
+      return NextResponse.json(
+        { message: "Erreur lors de la récupération des cours." },
+        { status: 500 }
+      );
+    }
+
+    const courses = await response.json();
     return NextResponse.json(courses, { status: 200 });
   } catch (error) {
     console.error("Erreur lors de la récupération des cours :", error);

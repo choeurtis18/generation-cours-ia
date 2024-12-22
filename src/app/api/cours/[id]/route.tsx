@@ -1,6 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
 
 interface Cours {
   id: number;
@@ -14,28 +12,36 @@ interface Cours {
 
 export async function GET(request: NextRequest) {
   try {
-    // Récupérer les paramètres de l'URL
+    // Récupérer l'ID depuis l'URL
     const url = new URL(request.url);
-    const id = url.pathname.split("/").pop(); // Récupérer l'ID depuis l'URL
+    const id = url.pathname.split("/").pop();
 
     if (!id || isNaN(parseInt(id))) {
       return NextResponse.json({ message: "ID de cours invalide." }, { status: 400 });
     }
-    
-    const filePath = path.join(process.cwd(), "data", "courses.json");
-    const fileData = fs.existsSync(filePath) ? fs.readFileSync(filePath, "utf8") : "[]";
 
-    const courses: Cours[] = JSON.parse(fileData);
+    // URL publique pour accéder au fichier courses.json
+    const fileUrl = `${process.env.NEXT_PUBLIC_BASE_URL || ""}/data/courses.json`;
+
+    // Récupérer les données via fetch
+    const response = await fetch(fileUrl);
+    if (!response.ok) {
+      return NextResponse.json(
+        { message: "Erreur lors de la récupération des cours." },
+        { status: 500 }
+      );
+    }
+
+    const courses: Cours[] = await response.json();
     const cours = courses.find((e) => e.id === parseInt(id));
 
     if (!cours) {
       return NextResponse.json({ message: "Cours non trouvé." }, { status: 404 });
     }
 
-    const exportPath = path.join(process.cwd(), "data", `course-${cours.id}.json`);
-    fs.writeFileSync(exportPath, JSON.stringify(cours, null, 2));
-
-    return new Response(fs.readFileSync(exportPath), {
+    // Générer un fichier JSON pour l'exportation
+    const exportedData = JSON.stringify(cours, null, 2);
+    return new Response(exportedData, {
       headers: {
         "Content-Type": "application/json",
         "Content-Disposition": `attachment; filename="course-${cours.id}.json"`,

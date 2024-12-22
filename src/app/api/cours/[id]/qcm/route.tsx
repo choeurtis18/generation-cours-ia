@@ -1,6 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
 
 interface Cours {
   id: number;
@@ -14,10 +12,8 @@ interface Cours {
 
 export async function GET(request: NextRequest) {
   try {
-    // Récupérer les paramètres de l'URL
+    // Extraction précise de l'ID dans l'URL
     const url = new URL(request.url);
-
-    // Extraction précise de l'ID (avant "qcm")
     const match = url.pathname.match(/\/api\/cours\/(\d+)\/qcm/);
     const id = match ? match[1] : null;
 
@@ -25,6 +21,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ message: "ID de cours invalide." }, { status: 400 });
     }
 
+    // Récupérer le paramètre "questions"
     const numberOfQuestions = parseInt(url.searchParams.get("questions") || "0");
 
     if (numberOfQuestions <= 0) {
@@ -34,21 +31,33 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const filePath = path.join(process.cwd(), "data", "courses.json");
-    const fileData = fs.readFileSync(filePath, "utf-8");
-    const courses = JSON.parse(fileData) as Cours[];
+    // URL publique pour accéder au fichier courses.json
+    const fileUrl = `${process.env.NEXT_PUBLIC_BASE_URL || ""}/data/courses.json`;
 
+    // Lire le fichier via fetch
+    const response = await fetch(fileUrl);
+    if (!response.ok) {
+      return NextResponse.json(
+        { message: "Erreur lors de la récupération des cours." },
+        { status: 500 }
+      );
+    }
+
+    const courses = (await response.json()) as Cours[];
+
+    // Trouver le cours correspondant à l'ID
     const cours = courses.find((c) => c.id === parseInt(id));
     if (!cours) {
       return NextResponse.json({ message: "Cours introuvable." }, { status: 404 });
     }
 
+    // Vérification de la clé API
     const API_KEY = process.env.CHATGPT_API_KEY;
     if (!API_KEY) {
       return NextResponse.json({ message: "Clé API manquante." }, { status: 500 });
     }
 
-    // Ajoutez le nombre de questions au prompt
+    // Construire le payload pour OpenAI
     const payload = {
       model: "gpt-4o-mini-2024-07-18",
       messages: [
@@ -72,7 +81,8 @@ export async function GET(request: NextRequest) {
       ],
     };
 
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    // Appel à l'API OpenAI
+    const openAIResponse = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -81,13 +91,14 @@ export async function GET(request: NextRequest) {
       body: JSON.stringify(payload),
     });
 
-    if (!response.ok) {
-      const error = await response.text();
+    if (!openAIResponse.ok) {
+      const error = await openAIResponse.text();
       console.error("Erreur API OpenAI :", error);
       return NextResponse.json({ message: "Erreur lors de la génération du QCM." }, { status: 500 });
     }
 
-    const data = await response.json();
+    // Extraire le contenu généré
+    const data = await openAIResponse.json();
     const content = data.choices[0]?.message?.content;
 
     return NextResponse.json({ qcm: content }, { status: 200 });

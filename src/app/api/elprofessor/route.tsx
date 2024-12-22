@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
+import { z } from "zod";
 import fs from "fs";
 import path from "path";
-import { z } from "zod";
 import { courseSchema } from "@/validation/schema"; // Import du schéma centralisé
 
 // Interface pour les cours
@@ -18,8 +18,8 @@ interface Cours {
 // Fonction pour formater les erreurs Zod
 function formatZodErrors(errors: z.ZodIssue[]): { field: string; message: string }[] {
   return errors.map((error) => ({
-    field: error.path.join("."), // Convertit le chemin de l'erreur en une chaîne
-    message: error.message, // Utilise le message fourni par Zod
+    field: error.path.join("."),
+    message: error.message,
   }));
 }
 
@@ -89,24 +89,23 @@ export async function POST(request: Request) {
 
     console.log("Cours généré :", content);
 
-    // Gestion des fichiers JSON
-    const filePath = path.join(process.cwd(), "data", "courses.json");
+    // Lecture des données existantes depuis le dossier "data"
+    const dataPath = path.join(process.cwd(), "data", "courses.json");
     let courses: Cours[] = [];
 
-    if (fs.existsSync(filePath)) {
+    if (fs.existsSync(dataPath)) {
       try {
-        const fileData = fs.readFileSync(filePath, "utf8");
+        const fileData = fs.readFileSync(dataPath, "utf8");
         courses = JSON.parse(fileData);
       } catch (error) {
-        console.error("Erreur lors de la lecture du fichier JSON :", error);
+        console.error("Erreur lors de la lecture des données existantes :", error);
         return NextResponse.json(
           { message: "Erreur lors de la lecture des données existantes." },
           { status: 500 }
         );
       }
     } else {
-      console.warn("Fichier courses.json non trouvé. Création d'un fichier vide.");
-      fs.writeFileSync(filePath, "[]");
+      console.warn("Fichier courses.json non trouvé. Création d'un nouveau fichier.");
     }
 
     // Générer un ID unique et ajouter le cours
@@ -122,9 +121,9 @@ export async function POST(request: Request) {
     };
     courses.push(newCourse);
 
-    // Sauvegarder le fichier
+    // Sauvegarder le fichier mis à jour dans le dossier "data"
     try {
-      fs.writeFileSync(filePath, JSON.stringify(courses, null, 2));
+      fs.writeFileSync(dataPath, JSON.stringify(courses, null, 2));
       console.log("Nouveau cours sauvegardé :", newCourse);
     } catch (error) {
       console.error("Erreur lors de la sauvegarde des données :", error);
@@ -134,7 +133,10 @@ export async function POST(request: Request) {
       );
     }
 
-    return NextResponse.json({ message: "Cours ajouté avec succès." }, { status: 200 });
+    return NextResponse.json(
+      { message: "Cours ajouté avec succès.", course: newCourse },
+      { status: 200 }
+    );
   } catch (error) {
     // Gérer les erreurs Zod
     if (error instanceof z.ZodError) {

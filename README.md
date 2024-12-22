@@ -15,9 +15,11 @@ npm run dev
 Créer un fichier .env et ajouter la valeur "CHATGPT_API_KEY" avec la bonne clé
 ```bash
 CHATGPT_API_KEY="votre_clé"
+NEXT_PUBLIC_BASE_URL="url du site"
 ```
 Ouverez [http://localhost:3000](http://localhost:3000) sur votre navigateur préféré.
 
+A savoir que les cours sont bien crée mais stocké dans un fichier data à la racine du projet car le fichier public n'est accésible qu'en lecture seul. Faut de temps une BDD n'a pas pu être mise en place afin de gérer ça
 
 ## Learn More
 

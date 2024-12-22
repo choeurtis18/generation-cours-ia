@@ -1,6 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
 
 interface Cours {
   id: number;
@@ -23,14 +21,19 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ message: "ID de cours invalide." }, { status: 400 });
     }
 
-    // Charger le fichier des cours
-    const filePath = path.join(process.cwd(), "data", "courses.json");
-    if (!fs.existsSync(filePath)) {
-      return NextResponse.json({ message: "Fichier courses.json introuvable." }, { status: 500 });
+    // URL publique pour accéder au fichier courses.json
+    const fileUrl = `${process.env.NEXT_PUBLIC_BASE_URL || ""}/data/courses.json`;
+
+    // Récupérer les données via fetch
+    const response = await fetch(fileUrl);
+    if (!response.ok) {
+      return NextResponse.json(
+        { message: "Erreur lors de la récupération des cours." },
+        { status: 500 }
+      );
     }
 
-    const fileData = fs.readFileSync(filePath, "utf-8");
-    const courses = JSON.parse(fileData) as Cours[];
+    const courses = (await response.json()) as Cours[];
 
     // Rechercher le cours correspondant
     const cours = courses.find((c) => c.id === parseInt(id));
@@ -68,7 +71,7 @@ export async function GET(request: NextRequest) {
     };
 
     // Appel à l'API OpenAI
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    const openAIResponse = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -77,14 +80,14 @@ export async function GET(request: NextRequest) {
       body: JSON.stringify(payload),
     });
 
-    if (!response.ok) {
-      const error = await response.text();
+    if (!openAIResponse.ok) {
+      const error = await openAIResponse.text();
       console.error("Erreur API OpenAI :", error);
       return NextResponse.json({ message: "Erreur lors de la génération de la fiche." }, { status: 500 });
     }
 
     // Extraire le contenu généré
-    const data = await response.json();
+    const data = await openAIResponse.json();
     const content = data.choices[0]?.message?.content;
 
     return NextResponse.json({ fiche: content }, { status: 200 });
